@@ -1,3 +1,4 @@
+import { Button, OutlinedInput } from "@mui/material";
 import { useFormik } from "formik";
 import classes from "./PointForm.module.css";
 
@@ -22,13 +23,15 @@ function PointForm(props) {
         <div className={classes.pointForm}>
             <form onSubmit={formik.handleSubmit}>
                 <div>
-                    <input
+                    <OutlinedInput
+                        fullWidth
                         id="newPointText"
                         name="newPointText"
+                        autoComplete="off"
                         value={formik.values.newPointText}
-                        onChange={formik.handleChange}></input>
+                        onChange={formik.handleChange}></OutlinedInput>
                 </div>
-                <button type="submit">new todo</button>
+                <Button variant="contained" size="large" type="submit">new todo</Button>
             </form>
 
         </div>

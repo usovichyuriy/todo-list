@@ -1,18 +1,22 @@
+import { Checkbox, IconButton } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 import classes from "./Point.module.css";
 
 function Point(props) {
     return (
         <div className={classes.point}>
             <div className={classes.pointCheckbox}>
-                <input type="checkbox" />
+                <Checkbox />
             </div>
             <div className={classes.pointDescription}>
                 {props.message}
             </div>
             <div className={classes.deleteButton}>
-                <button onClick={() => {
+                <IconButton onClick={() => {
                     props.deletePoint(props.message)
-                }}>delete</button>
+                }}>
+                    <DeleteIcon />
+                </IconButton>
             </div>
         </div>
     )
