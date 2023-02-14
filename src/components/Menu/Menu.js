@@ -1,5 +1,6 @@
 import PointForm from "./PointForm/PointForm";
 import Point from "./Point/Point";
+import classes from "./Menu.module.css";
 
 function Menu(props) {
 
@@ -8,9 +9,11 @@ function Menu(props) {
     })
 
     return (
-        <div>
-            <PointForm addPoint={props.addPoint} updateNewPointText={props.updateNewPointText} />
-            <div>
+        <div className={classes.menu}>
+            <div className={classes.createPoint}>
+                <PointForm addPoint={props.addPoint} updateNewPointText={props.updateNewPointText} />
+            </div>
+            <div className={classes.listOfPoints}>
                 {points}
             </div>
         </div>

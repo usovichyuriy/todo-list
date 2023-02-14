@@ -1,0 +1,8 @@
+.point {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pointDescription {
+    color: orange;
+}

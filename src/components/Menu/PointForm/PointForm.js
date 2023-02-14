@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import classes from "./PointForm.module.css";
 
 function PointForm(props) {
 
@@ -18,14 +19,16 @@ function PointForm(props) {
     });
 
     return (
-        <div>
+        <div className={classes.pointForm}>
             <form onSubmit={formik.handleSubmit}>
-                <input
-                    id="newPointText"
-                    name="newPointText"
-                    value={formik.values.newPointText}
-                    onChange={formik.handleChange}></input>
-                <button type="submit">add</button>
+                <div>
+                    <input
+                        id="newPointText"
+                        name="newPointText"
+                        value={formik.values.newPointText}
+                        onChange={formik.handleChange}></input>
+                </div>
+                <button type="submit">new todo</button>
             </form>
 
         </div>

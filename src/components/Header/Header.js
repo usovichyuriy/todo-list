@@ -2,7 +2,7 @@ function Header(props) {
     return (
         <header>
             <div>
-                <h2>Header</h2>
+                <h2>things to do</h2>
             </div>
         </header>
     )
