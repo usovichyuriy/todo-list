@@ -1,8 +1,23 @@
 import { Button, OutlinedInput } from "@mui/material";
 import { useFormik } from "formik";
 import classes from "./PointForm.module.css";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function PointForm(props) {
+
+    const theme = createTheme({
+
+        palette: {
+            primary: {
+                main: 'rgb(255, 167, 196)',
+                darker: '#053e85',
+            },
+            neutral: {
+                main: 'rgb(51,52,54)',
+                contrastText: '#fff',
+            },
+        },
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -22,16 +37,19 @@ function PointForm(props) {
     return (
         <div className={classes.pointForm}>
             <form onSubmit={formik.handleSubmit}>
-                <div>
+                <div className={classes.newPointInput}>
                     <OutlinedInput
                         fullWidth
                         id="newPointText"
                         name="newPointText"
+                        placeholder="add new things to do..."
                         autoComplete="off"
                         value={formik.values.newPointText}
                         onChange={formik.handleChange}></OutlinedInput>
                 </div>
-                <Button variant="contained" size="large" type="submit">new todo</Button>
+                <ThemeProvider theme={theme}>
+                    <Button variant="contained" size="large" type="submit">new todo</Button>
+                </ThemeProvider>
             </form>
 
         </div>

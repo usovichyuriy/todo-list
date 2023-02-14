@@ -1,23 +1,41 @@
 import { Checkbox, IconButton } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import classes from "./Point.module.css";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+const pointTheme = createTheme({
+
+    palette: {
+        primary: {
+            main: 'rgb(255, 167, 196)',
+            darker: '#053e85',
+        },
+        secondary: {
+            main: 'rgb(241, 101, 115)',
+        },
+    },
+});
 
 function Point(props) {
     return (
         <div className={classes.point}>
-            <div className={classes.pointCheckbox}>
-                <Checkbox />
-            </div>
-            <div className={classes.pointDescription}>
-                {props.message}
-            </div>
-            <div className={classes.deleteButton}>
-                <IconButton onClick={() => {
-                    props.deletePoint(props.message)
-                }}>
-                    <DeleteIcon />
-                </IconButton>
-            </div>
+            <ThemeProvider theme={pointTheme}>
+                <div className={classes.pointCheckbox}>
+                    <Checkbox color="primary" />
+                </div>
+                <div className={classes.pointDescription}>
+                    {props.message}
+                </div>
+                <div className={classes.deleteButton}>
+
+                    <IconButton aria-label="delete" onClick={() => {
+                        props.deletePoint(props.message)
+                    }}>
+                        <DeleteIcon color="secondary" />
+                    </IconButton>
+                </div>
+            </ThemeProvider>
         </div>
     )
 }

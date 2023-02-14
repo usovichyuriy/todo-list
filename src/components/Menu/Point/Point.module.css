@@ -1,8 +1,12 @@
 .point {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 1% 0;
 }
 
 .pointDescription {
-    color: orange;
+    color: rgb(40, 44, 53);
 }

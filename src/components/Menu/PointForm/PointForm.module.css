@@ -2,3 +2,15 @@
     display: flex;
     flex-direction: column;
 }
+
+.newPointInput {
+    border-radius: 5px;
+    background-color: rgb(65, 68, 77);
+    margin-bottom: 1%;
+}
+
+.pointForm button {
+    font-family: Montserrat, sans-serif;
+    text-transform: none;
+    color: rgb(40, 44, 53);
+}
