@@ -9,7 +9,7 @@ function Menu(props) {
 
     return (
         <div>
-            <PointForm />
+            <PointForm addPoint={props.addPoint} updateNewPointText={props.updateNewPointText} />
             <div>
                 {points}
             </div>
