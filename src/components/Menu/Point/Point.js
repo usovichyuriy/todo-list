@@ -2,9 +2,11 @@
 function Point(props) {
     return (
         <div>
-        *
+            *
             {props.message}
-        <button>delete</button>
+            <button onClick={() => {
+                props.deletePoint(props.message)
+            }}>delete</button>
         </div>
     )
 }

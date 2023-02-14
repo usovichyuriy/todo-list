@@ -1,6 +1,6 @@
 import Menu from "./Menu";
 import { connect } from "react-redux";
-import { addPointActionCreator, updateNewPointTextActionCreator } from "../../redux/point-reducer";
+import { addPointActionCreator, deletePointActionCreator, updateNewPointTextActionCreator } from "../../redux/point-reducer";
 
 let mapStateToProps = (store) => {
     return {
@@ -15,6 +15,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         updateNewPointText: (text) => {
             dispatch(updateNewPointTextActionCreator(text));
+        },
+        deletePoint: (text) => {
+            dispatch(deletePointActionCreator(text));
         }
     }
 }
