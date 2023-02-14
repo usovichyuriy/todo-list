@@ -1,4 +1,3 @@
-
 function PointForm() {
     return (
         <div>

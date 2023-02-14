@@ -1,9 +1,9 @@
 
-function Point() {
+function Point(props) {
     return (
         <div>
-        checkbox
-            learn react
+        *
+            {props.message}
         <button>delete</button>
         </div>
     )
