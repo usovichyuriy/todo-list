@@ -9,7 +9,7 @@ function PointForm(props) {
 
         palette: {
             primary: {
-                main: 'rgb(255, 167, 196)',
+                main: 'rgb(213, 68, 116)',
                 darker: '#053e85',
             },
             neutral: {

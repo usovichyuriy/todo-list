@@ -1,10 +1,12 @@
 .point {
     display: flex;
     justify-content: space-between;
+    font-family: 'Merriweather','Georgia',serif;
     align-items: center;
     background-color: #fff;
     border-radius: 5px;
     margin: 1% 0;
+    width: 98%;
 }
 
 .pointDescription {

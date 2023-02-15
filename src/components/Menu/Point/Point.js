@@ -12,7 +12,7 @@ const pointTheme = createTheme({
             darker: '#053e85',
         },
         secondary: {
-            main: 'rgb(241, 101, 115)',
+            main: 'rgb(213, 68, 116)',
         },
     },
 });

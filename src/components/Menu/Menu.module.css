@@ -1,3 +1,23 @@
 .listOfPoints {
-    padding: 5% 15%;
+    height: 300px;
+    overflow-y: scroll;
+    scrollbar-color: rgb(255, 167, 196) rgb(40, 44, 53);
+}
+
+.menu h4 {
+    text-align: left;
+    color: rgb(255, 167, 196);
+}
+
+.counter p {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 20px;
+    text-align: left;
+}
+
+.date {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 5%;
 }

@@ -1,8 +1,10 @@
+import classes from './Header.module.css';
+
 function Header(props) {
     return (
         <header>
-            <div>
-                <h2>things to do</h2>
+            <div className={classes.header}>
+                <h3>Things to Do</h3>
             </div>
         </header>
     )

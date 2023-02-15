@@ -5,5 +5,11 @@
   color: white;
   font-family: Montserrat, sans-serif;
   font-size: 1.75rem;
-  padding: 1%;
+  padding: 1% 30%;
+}
+
+@media (max-width: 992px) {
+  .app-wrapper {
+      padding: 0 5%;
+  }
 }
