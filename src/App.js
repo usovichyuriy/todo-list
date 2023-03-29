@@ -1,7 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
-import Login from './components/Login/Login';
+import LoginContainer from './components/Login/LoginContainer';
 import MenuContainer from './components/Menu/MenuContainer';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
             <Route path="/menu"
               element={<MenuContainer />} />
             <Route path="/login"
-              element={<Login />} />
+              element={<LoginContainer />} />
           </Routes>
         </div>
       </HashRouter>
