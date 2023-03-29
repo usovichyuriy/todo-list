@@ -1,9 +1,9 @@
 import classes from "./Task.module.css";
 
-function Task() {
+function Task(props) {
     return (
         <div className={classes.task}>
-            <p>task title</p>
+            <p>{props.taskTitle}</p>
             <button>edit task</button>
             <button>delete task</button>
         </div>
