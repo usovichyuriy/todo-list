@@ -2,13 +2,14 @@ import { useFormik } from "formik";
 import classes from "./LoginForm.module.css";
 import loginFormSchema from "../../FormValidation/LoginFormSchema";
 
-function LoginForm() {
+function LoginForm(props) {
 
     const formik = useFormik({
         initialValues: {
             email: '',
             password: '',
-            rememberMe: false
+            rememberMe: false,
+            captcha: null
         },
 
         validate: (formData) => {
@@ -27,7 +28,7 @@ function LoginForm() {
 
         onSubmit: (formData, { setSubmitting }) => {
             setTimeout(() => {
-                console.log(formData);
+                props.loginUser(formData);
                 setSubmitting(false);
             }, 400);
         }
@@ -36,7 +37,6 @@ function LoginForm() {
     return (
         <div className={classes.loginForm}>
             <form onSubmit={formik.handleSubmit}>
-                
                 <div className={classes.emailInput}>
                     <input id="email"
                         name="email"
@@ -60,6 +60,17 @@ function LoginForm() {
                     <input type="checkbox" name={"rememberMe"} onChange={formik.handleChange} />
                     <label htmlFor={'rememberMe'}>remember me</label>
                 </div>
+                {props.captchaUrl &&
+                    <div className={classes.captcha}>
+                        <img src={props.captchaUrl} />
+                        <input id="captcha"
+                            name="captcha"
+                            label="captcha"
+                            value={formik.values.captcha}
+                            onChange={formik.handleChange}
+                        />
+                    </div>}
+                {props.errorMessage ? <div>{props.errorMessage}</div> : <div></div>}
                 <div className={classes.loginButton}>
                     <button type="submit">log in</button>
                 </div>

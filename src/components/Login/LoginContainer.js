@@ -5,7 +5,8 @@ import { loginUser } from "../../redux/authReducer";
 
 let mapStateToProps = (store) => {
     return {
-        auth: store.auth
+        auth: store.auth,
+        captchaUrl: store.security.url
     }
 }
 

@@ -1,12 +1,15 @@
 import { authAPI } from "../api/api";
+import { getCaptchaUrl } from "./securityReducer";
 
-const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA'; 
+const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
+const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 
 let initialState = {
     userId: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: false,
+    errorMessage: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -16,6 +19,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.data
             }
+        case SET_ERROR_MESSAGE:
+            return {
+                ...state,
+                ...action.errorMessage
+            }
         default:
             return state;
     }
@@ -24,6 +32,12 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (userId, email, login, isAuth) => {
     return {
         type: SET_AUTH_USER_DATA, data: { userId, email, login, isAuth }
+    }
+}
+
+export const setErrorMessage = (errorMessage) => {
+    return {
+        type: SET_ERROR_MESSAGE, errorMessage: { errorMessage } 
     }
 }
 
@@ -43,6 +57,13 @@ export const loginUser = ({ email, password, rememberMe, captcha }) => {
         if (response.data.resultCode === 0) {
             dispatch(getAuthUserData());
         }
+        else if (response.data.resultCode === 10) {
+            dispatch(getCaptchaUrl());
+            dispatch(setErrorMessage(response.data.messages));
+        }
+        else {
+            dispatch(setErrorMessage(response.data.messages));
+        }
     }
 }
 
@@ -54,5 +75,4 @@ export const logoutUser = () => {
         }
     }
 }
-
 export default authReducer;
