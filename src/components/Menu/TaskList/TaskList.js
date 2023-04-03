@@ -9,7 +9,7 @@ function TaskList(props) {
 
     return (
         <div className={classes.taskList}>
-            <div>
+            <div className={classes.taskListInfo}>
                 <h4>{props.title}</h4>
                 <button>add new task</button>
                 <button>edit task list title</button>
