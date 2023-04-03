@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import Menu from "./Menu";
 
 let mapStateToProps = (store) => {
@@ -14,4 +15,4 @@ const MenuContainer = (props) => {
         </div>
     )
 }
-export default compose(connect(mapStateToProps, {}))(MenuContainer);
+export default compose(connect(mapStateToProps, {}), withAuthRedirect)(MenuContainer);
