@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import LoginContainer from './components/Login/LoginContainer';
 import MenuContainer from './components/Menu/MenuContainer';
 import { getAuthUserData } from './redux/authReducer';
@@ -16,7 +16,7 @@ function App(props) {
   return (
     <div className="app-wrapper">
       <HashRouter>
-        <Header />
+        <HeaderContainer />
         <div className="app-wrapper-content">
           <Routes>
             <Route path="/"

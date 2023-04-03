@@ -1,11 +1,11 @@
 import classes from "./Header.module.css";
 
-function Header() {
+function Header(props) {
     return (
         <header className={classes.header}>
             <div>
                 <h3>todo-list</h3>
-                <button>log out</button>
+                {props.isAuth ? <div><button onClick={props.logoutUser}>log out</button></div> : <div></div>}
             </div>
         </header>
     )
