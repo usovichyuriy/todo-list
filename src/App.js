@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import LoginContainer from './components/Login/LoginContainer';
 import MenuContainer from './components/Menu/MenuContainer';
+import { getAuthUserData } from './redux/authReducer';
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+    props.getAuthUserData();
+  }, [])
+
   return (
     <div className="app-wrapper">
       <HashRouter>
@@ -23,5 +31,4 @@ function App() {
     </div>
   );
 }
-
-export default App;
+export default connect(null, { getAuthUserData })(App);
