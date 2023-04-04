@@ -1,16 +1,29 @@
 import { taskListsAPI } from "../api/api";
 
 const SET_TASK_LISTS = 'SET_TASK_LISTS';
+const SET_TASKS = 'SET_TASKS';
 
 let initialState = {
     data: [],
-    items: [{taskTitle: 'print the documents'}]
+    items: []
 }
 
 const taskListReducer = (state = initialState, action) => {
+
+    let itemsCopy = [...state.items];
+
     switch (action.type) {
         case SET_TASK_LISTS:
             return { ...state, data: action.data };
+        case SET_TASKS:
+            if (action.items !== undefined && itemsCopy.length === 0) {
+                return { ...state, items: action.items };
+            }
+            else if (action.items !== undefined && itemsCopy.length > 0) {
+                let otherTasks = itemsCopy.filter(item => item.todoListId !== action.todoListId);
+                let newItems = otherTasks.concat(action.items);
+                return { ...state, items: newItems };
+            }
         default:
             return state;
     }
@@ -18,6 +31,12 @@ const taskListReducer = (state = initialState, action) => {
 export const setTaskLists = (data) => {
     return {
         type: SET_TASK_LISTS, data
+    }
+}
+
+export const setTasks = (items, todoListId) => {
+    return {
+        type: SET_TASKS, items, todoListId
     }
 }
 
@@ -52,6 +71,13 @@ export const editTaskListTitle = (taskListId, title) => {
         if (response.data.resultCode === 0) {
             dispatch(getTaskLists());
         }
+    }
+}
+
+export const getTasksForList = (todoListId) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.getTasksForList(todoListId);
+        dispatch(setTasks(response.data.items, todoListId));
     }
 }
 export default taskListReducer;

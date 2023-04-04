@@ -26,7 +26,9 @@ function TaskList(props) {
     }
 
     let tasks = props.tasks.map(task => {
-        return <Task taskTitle={task.taskTitle} />
+        if (task.todoListId === props.id) {
+            return <Task title={task.title} />
+        }
     })
 
     return (
@@ -46,7 +48,6 @@ function TaskList(props) {
                     }
                 </div>
             }
-
             <div>
                 {tasks}
             </div>

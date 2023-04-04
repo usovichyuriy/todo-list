@@ -38,5 +38,8 @@ export const taskListsAPI = {
     },
     updateTaskListTitle(todoListId, title) {
         return instance.put(`todo-lists/` + todoListId, title);
+    },
+    getTasksForList(todoListId) {
+        return instance.get(`todo-lists/` + todoListId + `/tasks`);
     }
 }
