@@ -1,36 +1,36 @@
 import { useFormik } from "formik";
-import classes from "./TaskListForm.module.css";
+import classes from "./EditTaskListForm.module.css";
 
-function TaskListForm(props) {
-
+function EditTaskListForm(props) {
     const formik = useFormik({
         initialValues: {
-            title: ''
+            title: props.title
         },
         onSubmit: (formData, { setSubmitting }) => {
             setTimeout(() => {
-                props.addNewTaskList(formData);
+                props.editTaskListTitle(props.id, formData);
                 formik.values.title = '';
                 setSubmitting(false);
+                props.deactivateEditMode();
             }, 400)
         }
     })
     return (
-        <div className={classes.taskListForm}>
+        <div className={classes.editTaskListForm}>
             <form onSubmit={formik.handleSubmit}>
-                <div className={classes.newTaskListInput}>
+                <div className={classes.editTaskListInput}>
                     <input id="title"
                         name="title"
-                        placeholder="new taskList title"
                         autoComplete="off"
                         value={formik.values.title}
                         onChange={formik.handleChange} />
                 </div>
-                <div className={classes.newTaskListButton}>
-                    <button type="submit">add new task list</button>
+                <div className={classes.editTaskListButtons}>
+                    <button type="submit">save</button>
+                    <button onClick={props.deactivateEditMode}>exit</button>
                 </div>
             </form>
         </div>
     )
 }
-export default TaskListForm;
+export default EditTaskListForm;
