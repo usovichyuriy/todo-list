@@ -11,7 +11,7 @@ function EditTaskListForm(props) {
                 props.editTaskListTitle(props.id, formData);
                 formik.values.title = '';
                 setSubmitting(false);
-                props.deactivateEditMode();
+                props.deactivateUpdateListTitle();
             }, 400)
         }
     })

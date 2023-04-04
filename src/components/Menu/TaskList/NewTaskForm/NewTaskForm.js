@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import classes from "./NewTaskForm.module.css";
 
-function NewTaskForm() {
+function NewTaskForm(props) {
     const formik = useFormik({
         initialValues: {
             title: ''
@@ -27,7 +27,9 @@ function NewTaskForm() {
                 </div>
                 <div className={classes.newTaskButton}>
                     <button type="submit">add new task</button>
-                    <button>exit</button>
+                    <button onClick={() => {
+                        props.deactivateEditMode()
+                    }}>exit</button>
                 </div>
             </form>
         </div>
