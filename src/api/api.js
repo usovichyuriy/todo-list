@@ -25,3 +25,18 @@ export const securityAPI = {
         return instance.get(`security/get-captcha-url`);
     }
 }
+
+export const taskListsAPI = {
+    getTaskLists() {
+        return instance.get(`todo-lists`);
+    },
+    addNewTaskList(title) {
+        return instance.post(`todo-lists`, title)
+    },
+    deleteTaskList(todolistId) {
+        return instance.delete(`todo-lists/` + todolistId)
+    },
+    updateTaskListTitle(todolistId, title) {
+        return instance.put(`todo-lists/` + todolistId, title);
+    }
+}
