@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { getTaskLists } from "../../redux/taskListReducer";
+import { getTaskLists, addNewTaskList } from "../../redux/taskListReducer";
 import Menu from "./Menu";
 
 let mapStateToProps = (store) => {
@@ -22,4 +22,4 @@ const MenuContainer = (props) => {
         </div>
     )
 }
-export default compose(connect(mapStateToProps, { getTaskLists }), withAuthRedirect)(MenuContainer);
+export default compose(connect(mapStateToProps, { getTaskLists, addNewTaskList }), withAuthRedirect)(MenuContainer);

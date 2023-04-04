@@ -1,6 +1,7 @@
-import { connect } from "react-redux"
-import { compose } from "redux"
+import { connect } from "react-redux";
+import { compose } from "redux";
 import TaskList from "./TaskList";
+import { deleteTaskList, editTaskListTitle } from "../../../redux/taskListReducer";
 
 let mapStateToProps = (store) => {
     return {
@@ -15,4 +16,4 @@ const TaskListContainer = (props) => {
         </div>
     )
 }
-export default compose(connect(mapStateToProps, {}))(TaskListContainer);
+export default compose(connect(mapStateToProps, { deleteTaskList, editTaskListTitle }))(TaskListContainer);

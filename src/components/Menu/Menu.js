@@ -5,13 +5,13 @@ import TaskListContainer from "./TaskList/TaskListContainer";
 function Menu(props) {
 
     let taskLists = props.taskLists.map(taskList => {
-        return <TaskListContainer title={taskList.title} />
+        return <TaskListContainer id={taskList.id} title={taskList.title} />
     })
 
     return (
         <div className={classes.menu}>
             <p>Menu page</p>
-            <TaskListForm />
+            <TaskListForm addNewTaskList={props.addNewTaskList} />
             <div>
                 {taskLists}
             </div>

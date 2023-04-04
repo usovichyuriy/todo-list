@@ -27,4 +27,31 @@ export const getTaskLists = () => {
         dispatch(setTaskLists(response.data));
     }
 }
+
+export const addNewTaskList = (title) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.addNewTaskList(title);
+        if (response.data.resultCode === 0) {
+            dispatch(getTaskLists());
+        }
+    }
+}
+
+export const deleteTaskList = (taskListId) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.deleteTaskList(taskListId);
+        if (response.data.resultCode === 0) {
+            dispatch(getTaskLists());
+        }
+    }
+}
+
+export const editTaskListTitle = (taskListId, title) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.updateTaskListTitle(taskListId, title);
+        if (response.data.resultCode === 0) {
+            dispatch(getTaskLists());
+        }
+    }
+}
 export default taskListReducer;

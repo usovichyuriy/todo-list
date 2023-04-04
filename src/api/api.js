@@ -33,10 +33,10 @@ export const taskListsAPI = {
     addNewTaskList(title) {
         return instance.post(`todo-lists`, title)
     },
-    deleteTaskList(todolistId) {
-        return instance.delete(`todo-lists/` + todolistId)
+    deleteTaskList(todoListId) {
+        return instance.delete(`todo-lists/` + todoListId)
     },
-    updateTaskListTitle(todolistId, title) {
-        return instance.put(`todo-lists/` + todolistId, title);
+    updateTaskListTitle(todoListId, title) {
+        return instance.put(`todo-lists/` + todoListId, title);
     }
 }
