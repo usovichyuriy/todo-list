@@ -80,4 +80,32 @@ export const getTasksForList = (todoListId) => {
         dispatch(setTasks(response.data.items, todoListId));
     }
 }
+
+export const addNewTask = (todoListId, title) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.addNewTask(todoListId, title);
+        if (response.data.resultCode === 0) {
+            dispatch(getTasksForList(todoListId));
+        }
+    }
+}
+
+export const deleteTask = (todoListId, taskId) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.deleteTask(todoListId, taskId);
+        if (response.data.resultCode === 0) {
+            dispatch(getTasksForList(todoListId));
+        }
+    }
+}
+
+export const editTask = (todoListId, taskId, { title, description, completed, status, priority, startDate, deadline }) => {
+    return async (dispatch) => {
+        let response = await taskListsAPI.editTask(todoListId, taskId,
+            { title, description, completed, status, priority, startDate, deadline });
+        if (response.data.resultCode === 0) {
+            dispatch(getTasksForList(todoListId));
+        }
+    }
+}
 export default taskListReducer;

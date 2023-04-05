@@ -8,9 +8,10 @@ function NewTaskForm(props) {
         },
         onSubmit: (formData, { setSubmitting }) => {
             setTimeout(() => {
-                console.log(formData);
+                props.addNewTask(props.id, formData);
                 formik.values.title = '';
                 setSubmitting(false);
+                props.deactivateEditMode();
             }, 400)
         }
     })
@@ -18,7 +19,8 @@ function NewTaskForm(props) {
         <div className={classes.newTaskForm}>
             <form onSubmit={formik.handleSubmit}>
                 <div className={classes.newTaskInput}>
-                    <input id="title"
+                    <input 
+                        id="title"
                         name="title"
                         placeholder="new task title"
                         autoComplete="off"

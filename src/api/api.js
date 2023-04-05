@@ -13,7 +13,7 @@ export const authAPI = {
         return instance.get(`auth/me`);
     },
     login({ email, password, rememberMe, captcha }) {
-        return instance.post(`auth/login`, { email, password, rememberMe, captcha});
+        return instance.post(`auth/login`, { email, password, rememberMe, captcha });
     },
     logout() {
         return instance.delete(`auth/login`);
@@ -41,5 +41,15 @@ export const taskListsAPI = {
     },
     getTasksForList(todoListId) {
         return instance.get(`todo-lists/` + todoListId + `/tasks`);
+    },
+    addNewTask(todoListId, title) {
+        return instance.post(`todo-lists/` + todoListId + `/tasks`, title);
+    },
+    deleteTask(todoListId, taskId) {
+        return instance.delete(`todo-lists/` + todoListId + `/tasks/` + taskId);
+    },
+    editTask(todoListId, taskId, { title, description, completed, status, priority, startDate, deadline }) {
+        return instance.put(`todo-lists/` + todoListId + `/tasks/` + taskId,
+            { title, description, completed, status, priority, startDate, deadline });
     }
 }

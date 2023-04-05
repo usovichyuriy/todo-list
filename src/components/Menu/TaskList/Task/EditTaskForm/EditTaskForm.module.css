@@ -1,0 +1,9 @@
+.editTaskForm {
+    display: flex;
+    padding: 3%;
+}
+
+.inputBlock {
+    display: flex;
+    justify-content: space-between;
+}
