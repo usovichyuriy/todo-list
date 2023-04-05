@@ -38,39 +38,51 @@ function LoginForm(props) {
         <div className={classes.loginForm}>
             <form onSubmit={formik.handleSubmit}>
                 <div className={classes.emailInput}>
-                    <input id="email"
+                    <input
+                        id="email"
                         name="email"
                         type="email"
                         placeholder="Your email"
                         onChange={formik.handleChange}
                     />
-                {formik.errors.email ? <div>{formik.errors.email}</div> : <div></div>}
+                    {formik.errors.email ?
+                        <div>{formik.errors.email}</div> :
+                        <div></div>}
                 </div>
                 <div className={classes.passwordInput}>
-                    <input id="password"
+                    <input
+                        id="password"
                         name="password"
                         type="password"
                         placeholder="Your password"
                         value={formik.values.password}
                         onChange={formik.handleChange}
                     />
-                    {formik.errors.password ? <div>{formik.errors.password}</div> : <div></div>}
+                    {formik.errors.password ?
+                        <div>{formik.errors.password}</div> :
+                        <div></div>}
                 </div>
                 <div className={classes.loginFormChechbox}>
-                    <input type="checkbox" name={"rememberMe"} onChange={formik.handleChange} />
+                    <input
+                        type="checkbox"
+                        name={"rememberMe"}
+                        onChange={formik.handleChange} />
                     <label htmlFor={'rememberMe'}>remember me</label>
                 </div>
                 {props.captchaUrl &&
                     <div className={classes.captcha}>
                         <img src={props.captchaUrl} />
-                        <input id="captcha"
+                        <input
+                            id="captcha"
                             name="captcha"
                             label="captcha"
                             value={formik.values.captcha}
                             onChange={formik.handleChange}
                         />
                     </div>}
-                {props.errorMessage ? <div>{props.errorMessage}</div> : <div></div>}
+                {props.errorMessage ?
+                    <div>{props.errorMessage}</div> :
+                    <div></div>}
                 <div className={classes.loginButton}>
                     <button type="submit">log in</button>
                 </div>

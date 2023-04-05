@@ -19,7 +19,8 @@ function TaskListForm(props) {
         <div className={classes.taskListForm}>
             <form onSubmit={formik.handleSubmit}>
                 <div className={classes.newTaskListInput}>
-                    <input id="title"
+                    <input
+                        id="title"
                         name="title"
                         placeholder="new taskList title"
                         autoComplete="off"

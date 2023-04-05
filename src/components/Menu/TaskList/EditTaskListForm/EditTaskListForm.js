@@ -19,7 +19,8 @@ function EditTaskListForm(props) {
         <div className={classes.editTaskListForm}>
             <form onSubmit={formik.handleSubmit}>
                 <div className={classes.editTaskListInput}>
-                    <input id="title"
+                    <input
+                        id="title"
                         name="title"
                         autoComplete="off"
                         value={formik.values.title}

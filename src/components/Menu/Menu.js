@@ -10,7 +10,6 @@ function Menu(props) {
 
     return (
         <div className={classes.menu}>
-            <p>Menu page</p>
             <TaskListForm addNewTaskList={props.addNewTaskList} />
             <div>
                 {taskLists}
