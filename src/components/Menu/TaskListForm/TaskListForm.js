@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import classes from "./TaskListForm.module.css";
+import { Button, OutlinedInput, ThemeProvider, createTheme } from "@mui/material";
 
 function TaskListForm(props) {
 
@@ -15,21 +16,36 @@ function TaskListForm(props) {
             }, 400)
         }
     })
+
+    const taskListFormTheme = createTheme({
+        palette: {
+            primary: {
+                main: 'rgb(213, 68, 116)'
+            }
+        },
+    });
+
     return (
         <div className={classes.taskListForm}>
             <form onSubmit={formik.handleSubmit}>
-                <div className={classes.newTaskListInput}>
-                    <input
-                        id="title"
-                        name="title"
-                        placeholder="new taskList title"
-                        autoComplete="off"
-                        value={formik.values.title}
-                        onChange={formik.handleChange} />
-                </div>
-                <div className={classes.newTaskListButton}>
-                    <button type="submit">add new task list</button>
-                </div>
+                <ThemeProvider theme={taskListFormTheme}>
+                    <div className={classes.newTaskListInput}>
+                        <OutlinedInput
+                            fullWidth
+                            id="title"
+                            name="title"
+                            placeholder="add new todo list"
+                            autoComplete="off"
+                            value={formik.values.title}
+                            onChange={formik.handleChange} />
+                    </div>
+                    <div className={classes.newTaskListButton}>
+                        <Button
+                            variant="contained"
+                            type="submit"
+                        >new todo list</Button>
+                    </div>
+                </ThemeProvider>
             </form>
         </div>
     )

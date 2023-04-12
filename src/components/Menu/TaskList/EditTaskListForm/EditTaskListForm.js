@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import classes from "./EditTaskListForm.module.css";
+import { Button, OutlinedInput, ThemeProvider, createTheme } from "@mui/material";
 
 function EditTaskListForm(props) {
     const formik = useFormik({
@@ -15,21 +16,41 @@ function EditTaskListForm(props) {
             }, 400)
         }
     })
+
+    const editTaskListFormTheme = createTheme({
+        palette: {
+            primary: {
+                main: 'rgb(213, 68, 116)'
+            }
+        },
+    });
+
     return (
         <div className={classes.editTaskListForm}>
             <form onSubmit={formik.handleSubmit}>
-                <div className={classes.editTaskListInput}>
-                    <input
-                        id="title"
-                        name="title"
-                        autoComplete="off"
-                        value={formik.values.title}
-                        onChange={formik.handleChange} />
-                </div>
-                <div className={classes.editTaskListButtons}>
-                    <button type="submit">save</button>
-                    <button onClick={props.deactivateEditMode}>exit</button>
-                </div>
+                <ThemeProvider theme={editTaskListFormTheme}>
+                    <div className={classes.editTaskListInput}>
+                        <OutlinedInput
+                            fullWidth
+                            id="title"
+                            name="title"
+                            autoComplete="off"
+                            value={formik.values.title}
+                            onChange={formik.handleChange} />
+                    </div>
+                    <div className={classes.editTaskListButtons}>
+                        <Button
+                            variant="contained"
+                            size="large"
+                            type="submit"
+                        >save</Button>
+                        <Button
+                            variant="outlined"
+                            size="large"
+                            onClick={props.deactivateUpdateListTitle}
+                        >exit</Button>
+                    </div>
+                </ThemeProvider>
             </form>
         </div>
     )

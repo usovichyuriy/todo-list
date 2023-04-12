@@ -1,0 +1,18 @@
+.taskInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-family: 'Merriweather','Georgia',serif;
+    border-radius: 10px;
+    margin: 1% 0;
+}
+
+.taskTitle {
+    color: rgb(40, 44, 53);
+}
+
+.taskButtons {
+    display: flex;
+}

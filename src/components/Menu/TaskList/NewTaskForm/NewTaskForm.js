@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import classes from "./NewTaskForm.module.css";
+import { Button, OutlinedInput, ThemeProvider, createTheme } from "@mui/material";
 
 function NewTaskForm(props) {
     const formik = useFormik({
@@ -15,24 +16,43 @@ function NewTaskForm(props) {
             }, 400)
         }
     })
+
+    const newTaskFormTheme = createTheme({
+        palette: {
+            primary: {
+                main: 'rgb(213, 68, 116)'
+            }
+        },
+    });
+
     return (
         <div className={classes.newTaskForm}>
             <form onSubmit={formik.handleSubmit}>
-                <div className={classes.newTaskInput}>
-                    <input 
-                        id="title"
-                        name="title"
-                        placeholder="new task title"
-                        autoComplete="off"
-                        value={formik.values.title}
-                        onChange={formik.handleChange} />
-                </div>
-                <div className={classes.newTaskButton}>
-                    <button type="submit">add new task</button>
-                    <button onClick={() => {
-                        props.deactivateEditMode()
-                    }}>exit</button>
-                </div>
+                <ThemeProvider theme={newTaskFormTheme}>
+                    <div className={classes.newTaskInput}>
+                        <OutlinedInput
+                            fullWidth
+                            id="title"
+                            name="title"
+                            placeholder="new task title"
+                            autoComplete="off"
+                            value={formik.values.title}
+                            onChange={formik.handleChange} />
+                    </div>
+                    <div className={classes.newTaskButtons}>
+                        <Button
+                            variant="contained"
+                            size="large"
+                            type="submit"
+                        >new task</Button>
+                        <Button
+                            variant="outlined"
+                            size="large"
+                            onClick={() => {
+                                props.deactivateEditMode()
+                            }}>exit</Button>
+                    </div>
+                </ThemeProvider>
             </form>
         </div>
     )

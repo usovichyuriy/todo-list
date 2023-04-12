@@ -1,0 +1,12 @@
+.editTaskListInput input {
+    border-radius: 10px;
+    color: whitesmoke;
+    background-color: rgb(55, 60, 73);
+}
+
+.editTaskListButtons button {
+    margin: 1% 0;
+    border-radius: 10px;
+    text-transform: none;
+    font-family: Montserrat, 'sans-serif';
+}

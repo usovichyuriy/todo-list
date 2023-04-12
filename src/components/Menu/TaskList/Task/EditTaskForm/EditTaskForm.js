@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import classes from "./EditTaskForm.module.css";
+import { Button, OutlinedInput, ThemeProvider, createTheme } from "@mui/material";
 
 function EditTaskForm(props) {
     const formik = useFormik({
@@ -27,7 +28,8 @@ function EditTaskForm(props) {
         return (
             <div className={classes.inputBlock}>
                 <span>{key}:</span>
-                <input
+                <OutlinedInput
+                    fullWidth
                     id={key}
                     name={key}
                     placeholder={key}
@@ -38,18 +40,35 @@ function EditTaskForm(props) {
         )
     })
 
+    const editTaskFormTheme = createTheme({
+        palette: {
+            primary: {
+                main: 'rgb(213, 68, 116)'
+            }
+        },
+    });
+
     return (
         <div className={classes.editTaskForm}>
             <form onSubmit={formik.handleSubmit}>
-                <div className={classes.editTaskInput}>
-                    {inputs}
-                </div>
-                <div className={classes.editTaskButtons}>
-                    <button type="submit">save</button>
-                    <button onClick={() => {
-                        props.deactivateEditMode()
-                    }}>exit</button>
-                </div>
+                <ThemeProvider theme={editTaskFormTheme}>
+                    <div className={classes.editTaskInput}>
+                        {inputs}
+                    </div>
+                    <div className={classes.editTaskButtons}>
+                        <Button
+                            variant="contained"
+                            size="large"
+                            type="submit"
+                        >save</Button>
+                        <Button
+                            variant="outlined"
+                            size="large"
+                            onClick={() => {
+                                props.deactivateEditMode()
+                            }}>exit</Button>
+                    </div>
+                </ThemeProvider>
             </form>
         </div>
     )
