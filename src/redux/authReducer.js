@@ -1,5 +1,5 @@
 import { authAPI } from "../api/api";
-import { getCaptchaUrl } from "./securityReducer";
+import { getCaptchaUrl, setCaptchaUrl } from "./securityReducer";
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
@@ -47,6 +47,8 @@ export const getAuthUserData = () => {
         let { id, email, login } = response.data.data;
         if (response.data.resultCode === 0) {
             dispatch(setAuthUserData(id, email, login, true));
+            dispatch(setErrorMessage(null));
+            dispatch(setCaptchaUrl({url: null}));
         }
     }
 }
