@@ -1,79 +1,80 @@
 .loginPageWrapper {
-    display: flex;
+  display: flex;
 }
 
 .loginPage {
-    width: 50%;
-    padding: 5%;
-    border-radius: 0px 10px 10px 0px;
-    background-color: rgb(40, 44, 53);
-    box-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+  width: 50%;
+  padding: 5%;
+  border-radius: 0px 10px 10px 0px;
+  background-color: rgb(40, 44, 53);
+  box-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }
 
 .testData {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 20px;
-    font-family: "Segoe UI";
-    font-weight: 700;
-    width: 50%;
-    text-align: left;
-    background-color: rgb(54, 60, 72);
-    border-radius: 10px 0 0 10px;
-    padding: 5%;
-    box-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 20px;
+  font-family: "Segoe UI";
+  font-weight: 700;
+  width: 50%;
+  text-align: left;
+  background-color: rgb(54, 60, 72);
+  border-radius: 10px 0 0 10px;
+  padding: 5%;
+  box-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }
 
 .testData h3 {
-    font-weight: 600;
-    margin-bottom: 0;
-    margin-top: 0;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .testData h4 {
-    margin-top: 2px;
-    color: gray;
-    font-size: 20px;
-    font-weight: 100;
-    color: rgb(231, 231, 233);
-    margin-bottom: 0;
+  margin-top: 2px;
+  color: gray;
+  font-size: 20px;
+  font-weight: 100;
+  color: rgb(231, 231, 233);
+  margin-bottom: 0;
 }
 
 .loginData {
-    display: flex;
-    font-size: 15px;
-    font-weight: normal;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  font-size: 15px;
+  font-weight: normal;
+  align-items: center;
+  text-align: center;
 }
 
 .loginData span {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .loginData button {
-    color: rgb(255, 167, 196);
-    text-transform: none;
+  color: rgb(255, 167, 196);
+  text-transform: none;
 }
 
 @media (max-width: 800px) {
-    .loginPageWrapper {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  .loginPageWrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .loginPage {
-        border-radius: 0px 0px 10px 10px;
-    }
+  .loginPage {
+    border-radius: 0px 0px 10px 10px;
+  }
 
-    .testData {
-        border-radius: 10px 10px 0 0;
-    }
+  .testData {
+    border-radius: 10px 10px 0 0;
+  }
 
-    .loginPage, .testData {
-        width: 75%;
-        min-height: 250px;
-    }
+  .loginPage,
+  .testData {
+    width: 75%;
+    min-height: 250px;
+  }
 }

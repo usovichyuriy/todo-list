@@ -1,16 +1,16 @@
 .menu {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu h4 {
-    text-align: left;
-    color: rgb(255, 167, 196);
+  text-align: left;
+  color: rgb(255, 167, 196);
 }
 
 .date {
-    text-align: left;
-    margin-bottom: 3%;
-    font-family: 'Merriweather','Georgia',serif;
-    font-size: 20px;
+  text-align: left;
+  margin-bottom: 3%;
+  font-family: "Merriweather", "Georgia", serif;
+  font-size: 20px;
 }

@@ -2,28 +2,39 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import TaskList from "./TaskList";
 import {
-    deleteTaskList, editTaskListTitle, getTasksForList,
-    addNewTask, deleteTask, editTask
+  deleteTaskList,
+  editTaskListTitle,
+  getTasksForList,
+  addNewTask,
+  deleteTask,
+  editTask,
 } from "../../../redux/taskListReducer";
 import { useEffect } from "react";
 
 let mapStateToProps = (store) => {
-    return {
-        tasks: store.taskLists.items
-    }
-}
+  return {
+    tasks: store.taskLists.items,
+  };
+};
 
 const TaskListContainer = (props) => {
+  useEffect(() => {
+    props.getTasksForList(props.id);
+  }, []);
 
-    useEffect(() => {
-        props.getTasksForList(props.id);
-    }, [])
-
-    return (
-        <div>
-            <TaskList {...props} />
-        </div>
-    )
-}
-export default compose(connect(mapStateToProps,
-    { deleteTaskList, editTaskListTitle, getTasksForList, addNewTask, deleteTask, editTask }))(TaskListContainer);
+  return (
+    <div>
+      <TaskList {...props} />
+    </div>
+  );
+};
+export default compose(
+  connect(mapStateToProps, {
+    deleteTaskList,
+    editTaskListTitle,
+    getTasksForList,
+    addNewTask,
+    deleteTask,
+    editTask,
+  })
+)(TaskListContainer);

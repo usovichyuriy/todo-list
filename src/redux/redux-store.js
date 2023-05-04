@@ -5,10 +5,10 @@ import securityReducer from "./securityReducer";
 import taskListReducer from "./taskListReducer";
 
 let reducers = combineReducers({
-    taskLists: taskListReducer,
-    auth: authReducer,
-    security: securityReducer
-})
+  taskLists: taskListReducer,
+  auth: authReducer,
+  security: securityReducer,
+});
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 window.store = store;

@@ -1,40 +1,41 @@
 .loginForm {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .loginForm input {
-    background-color: #fff;
-    border-radius: 5px;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
-.emailInput, .passwordInput {
-    margin-bottom: 5%;
+.emailInput,
+.passwordInput {
+  margin-bottom: 5%;
 }
 
 .loginFormCheckbox {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
 }
 
 .loginFormCheckbox label {
-    font-size: 15px;
-    font-family: "Segoe UI";
+  font-size: 15px;
+  font-family: "Segoe UI";
 }
 
 .loginButton button {
-    width: 50%;
-    font-family: Montserrat, 'sans-serif';
-    text-transform: none;
-    font-size: 15px;
-    border-radius: 20px;
+  width: 50%;
+  font-family: Montserrat, "sans-serif";
+  text-transform: none;
+  font-size: 15px;
+  border-radius: 20px;
 }
 
 .errorMessage {
-    text-align: left;
-    color: red;
-    font-size: 15px;
-    margin-bottom: 3%;
-    font-family: "Segoe UI";
+  text-align: left;
+  color: red;
+  font-size: 15px;
+  margin-bottom: 3%;
+  font-family: "Segoe UI";
 }

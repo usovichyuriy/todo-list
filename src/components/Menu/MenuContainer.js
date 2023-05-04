@@ -6,20 +6,22 @@ import { getTaskLists, addNewTaskList } from "../../redux/taskListReducer";
 import Menu from "./Menu";
 
 let mapStateToProps = (store) => {
-    return {
-        taskLists: store.taskLists.data
-    }
-}
+  return {
+    taskLists: store.taskLists.data,
+  };
+};
 const MenuContainer = (props) => {
+  useEffect(() => {
+    props.getTaskLists();
+  }, []);
 
-    useEffect(() => {
-        props.getTaskLists();
-    }, [])
-
-    return (
-        <div>
-            <Menu {...props} />
-        </div>
-    )
-}
-export default compose(connect(mapStateToProps, { getTaskLists, addNewTaskList }), withAuthRedirect)(MenuContainer);
+  return (
+    <div>
+      <Menu {...props} />
+    </div>
+  );
+};
+export default compose(
+  connect(mapStateToProps, { getTaskLists, addNewTaskList }),
+  withAuthRedirect
+)(MenuContainer);

@@ -1,33 +1,34 @@
 import { securityAPI } from "../api/api";
 
-const SET_CAPTCHA_URL = 'SET_CAPTCHA_URL';
+const SET_CAPTCHA_URL = "SET_CAPTCHA_URL";
 
 let initialState = {
-    url: null
-}
+  url: null,
+};
 
 const securityReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_CAPTCHA_URL:
-            return {
-                ...state,
-                ...action.url
-            }
-        default:
-            return state;
-    }
-}
+  switch (action.type) {
+    case SET_CAPTCHA_URL:
+      return {
+        ...state,
+        ...action.url,
+      };
+    default:
+      return state;
+  }
+};
 
 export const setCaptchaUrl = (url) => {
-    return {
-        type: SET_CAPTCHA_URL, url
-    }
-}
+  return {
+    type: SET_CAPTCHA_URL,
+    url,
+  };
+};
 
 export const getCaptchaUrl = () => {
-    return async (dispatch) => {
-        let response = await securityAPI.getCaptchaUrl();
-        dispatch(setCaptchaUrl(response.data));
-    }
-}
+  return async (dispatch) => {
+    let response = await securityAPI.getCaptchaUrl();
+    dispatch(setCaptchaUrl(response.data));
+  };
+};
 export default securityReducer;

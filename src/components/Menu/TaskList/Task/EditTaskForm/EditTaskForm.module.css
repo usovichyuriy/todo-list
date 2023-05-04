@@ -1,22 +1,22 @@
 .editTaskForm {
-    display: flex;
-    justify-content: center;
-    padding: 3%;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
 }
 
 .inputBlock span {
-    text-align: left;
+  text-align: left;
 }
 
 .inputBlock input {
-    border-radius: 10px;
-    color: whitesmoke;
-    background-color: rgb(55, 60, 73);
+  border-radius: 10px;
+  color: whitesmoke;
+  background-color: rgb(55, 60, 73);
 }
 
 .editTaskButtons button {
-    border-radius: 10px;
-    text-transform: none;
-    font-family: Montserrat, 'sans-serif';
-    margin: 1% 0;
+  border-radius: 10px;
+  text-transform: none;
+  font-family: Montserrat, "sans-serif";
+  margin: 1% 0;
 }

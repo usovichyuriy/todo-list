@@ -1,44 +1,44 @@
 .taskList {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
 }
 
 .taskListWrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .taskListInfo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .taskListDate {
-    text-align: left;
-    font-family: 'Merriweather','Georgia',serif;
-    font-size: 20px;
+  text-align: left;
+  font-family: "Merriweather", "Georgia", serif;
+  font-size: 20px;
 }
 
 .boxShadow {
-    padding: 5%;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px 0 rgba(26,26,27,0.637);
-    margin-bottom: 1%;
+  padding: 5%;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+  margin-bottom: 1%;
 }
 
 .taskListTitle {
-    color: rgb(255, 167, 196);
+  color: rgb(255, 167, 196);
 }
 
 .taskListButtons {
-    display: flex;
+  display: flex;
 }
 
 @media (max-width: 450px) {
-    .taskListInfo {
-        flex-direction: column;
-        justify-content: center;
-    }
+  .taskListInfo {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
