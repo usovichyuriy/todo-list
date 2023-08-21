@@ -2,6 +2,7 @@ import { taskListsAPI } from "../api/api";
 
 const SET_TASK_LISTS = "SET_TASK_LISTS";
 const SET_TASKS = "SET_TASKS";
+const REMOVE_TASKS = "REMOVE_TASKS";
 
 let initialState = {
   data: [],
@@ -24,6 +25,11 @@ const taskListReducer = (state = initialState, action) => {
         let newItems = otherTasks.concat(action.items);
         return { ...state, items: newItems };
       }
+    case REMOVE_TASKS:
+      let updatedTasks = itemsCopy.filter(
+        (task) => task.todoListId !== action.todoListId
+      );
+      return { ...state, items: updatedTasks };
     default:
       return state;
   }
@@ -39,6 +45,13 @@ export const setTasks = (items, todoListId) => {
   return {
     type: SET_TASKS,
     items,
+    todoListId,
+  };
+};
+
+export const removeTasks = (todoListId) => {
+  return {
+    type: REMOVE_TASKS,
     todoListId,
   };
 };
@@ -63,6 +76,7 @@ export const deleteTaskList = (taskListId) => {
   return async (dispatch) => {
     let response = await taskListsAPI.deleteTaskList(taskListId);
     if (response.data.resultCode === 0) {
+      dispatch(removeTasks(taskListId));
       dispatch(getTaskLists());
     }
   };
